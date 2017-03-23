@@ -18,11 +18,10 @@ class SeleccionaExcel extends \BaseController {
 			if (isset($_POST)) {
 					$datos=$_POST['datos'];
 					$datosarray=explode(",",$datos);
-					$anuncios = Exportar::select($datosarray)->get();
-					//$afin=explode(",",$anuncios);
+					$anuncios = Exportar::select($datosarray)->with('Empresa')->get();
+					//return($anuncios);
 					$data=array('datos'=>$datosarray,'anuncios'=>$anuncios);
 					return View::make('EscogeExcel.excel',$data);
-
 			}
 	}
 

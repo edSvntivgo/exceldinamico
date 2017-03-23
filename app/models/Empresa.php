@@ -1,6 +1,6 @@
 <?php
-class Empresas extends Eloquent{
-		protected $table = "empresas2";
+class Empresa extends Eloquent{
+		protected $table = "empresa";
 		protected $primaryKey = "id_empresa";
 		protected $fillable = array("empresa","telefono","contacto","email_contacto","logo","pin","fondo","color");
 
@@ -11,5 +11,7 @@ class Empresas extends Eloquent{
 		public function Pauta(){
 			return $this->belongsTo("Pautas", "id_empresa","id_empresa");
 		}
+		public function AnuncioEmpresa(){
+			return $this->belongsTo("Exportar","id_empresa","id_empresa");
+		}
 	}
-	
